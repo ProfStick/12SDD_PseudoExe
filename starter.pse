@@ -1,0 +1,13 @@
+BEGIN starter
+
+currentNumber = 1
+previousNumber = 1
+
+FOR counter = 0 TO 20 STEP 1
+    tempNumber = currentNumber
+    currentNumber = currentNumber + lastNumber
+    lastNumber = tempNumber
+    print currentNumber
+NEXT counter
+
+END starter
