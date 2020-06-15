@@ -1,19 +1,19 @@
 BEGIN starter
 
-currentNumber = 0
+Let currentNumber = 0
 
 Display currentNumber
 
-lastNumber = currentNumber
-currentNumber = lastNumber + 1
+Let lastNumber = currentNumber
+Let currentNumber = lastNumber + 1
 
 Display currentNumber
 
-FOR counter = 0 TO 20 STEP 1
-    tempNumber = currentNumber
-    currentNumber = currentNumber + lastNumber
-    lastNumber = tempNumber
-    print currentNumber
+FOR Let counter = 0 TO 20 STEP 1
+    Let tempNumber = currentNumber
+    Let currentNumber = currentNumber + lastNumber
+    Let lastNumber = tempNumber
+    Display currentNumber
 NEXT counter
 
 END starter
