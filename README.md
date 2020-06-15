@@ -13,7 +13,7 @@ Theoretical discussion of metalanguages, and lexical and syntactical analysis ca
 
 
 ## Resources
-This project is very heavily based on Marcelo Andrade's work [Writing your own programming language and compiler with Python(https://blog.usejournal.com/writing-your-own-programming-language-and-compiler-with-python-a468970ae6df)]
+This project is very heavily based on Marcelo Andrade's work [Writing your own programming language and compiler with Python](https://blog.usejournal.com/writing-your-own-programming-language-and-compiler-with-python-a468970ae6df)
 
 You will need to install the following:
 * [LLVMLite](http://llvmlite.pydata.org) A lightweight LLVM python binding for writing JIT compilers
