@@ -1,6 +1,6 @@
-"""A lexer for PseudoExe language project.
+"""PseudoExe language project.
 
-Defines a lexicon for the PseudoExe language and performs lexical analysis.
+Defines a lexicon and parser for the PseudoExe language.
 
   Typical usage example:
 
@@ -10,7 +10,37 @@ Defines a lexicon for the PseudoExe language and performs lexical analysis.
 """
 
 class Lexer(object):
-    """Summary of class here.
+    """Defines a lexer for the PseudoExe language.
+
+    Longer class information....
+    
+    Attributes:
+        likes_spam: A boolean indicating if we like SPAM or not.
+        eggs: An integer count of the eggs we have laid.
+    """
+
+    def __init__(self, likes_spam=False):
+        """Inits SampleClass with blah."""
+        self.likes_spam = likes_spam
+        self.eggs = 0
+
+    def public_method(self):
+        """Longer description of desired functionality
+
+        Args:
+            required_variable: A required argument
+            optional_variable: An optional argument
+
+        Returns:
+            None: but if it did you would describe it here
+
+        Raises:
+            NoError: but if it did you would describe it here
+        """
+        return None
+
+class Parser(object):
+    """Defines a Parser for the PseudoExe language.
 
     Longer class information....
     
