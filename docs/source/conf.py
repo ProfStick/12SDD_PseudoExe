@@ -29,7 +29,7 @@ except FileNotFoundError:
 
 # -- Project information -----------------------------------------------------
 
-project = 'Prof Sticks Mostly Good Python Template'
+project = 'Prof Sticks Mostly Good PseudoExe Language Project'
 copyright = '2020, ProfStick'
 author = 'ProfStick'
 
