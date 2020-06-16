@@ -1,6 +1,6 @@
-"""A lexer for PseudoExe language project.
+"""A parser for PseudoExe language project.
 
-Defines a lexicon for the PseudoExe language and performs lexical analysis.
+Parses a PseudoExe language script and performs syntactical analysis.
 
   Typical usage example:
 
@@ -9,7 +9,7 @@ Defines a lexicon for the PseudoExe language and performs lexical analysis.
   bar = foo.public_method(required_variable, optional_variable=42)
 """
 
-class Lexer(object):
+class Parser(object):
     """Summary of class here.
 
     Longer class information....
