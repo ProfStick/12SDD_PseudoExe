@@ -1,4 +1,4 @@
-module1 module
+pseudoexe module
 ==============
 
 .. automodule:: pseudoexe
