@@ -44,7 +44,7 @@ release = '0.0.1'
 # ones.
 extensions = [
 	    'sphinx.ext.autodoc',
-	    'sphinx.ext.viewcode',
+	    'sphinx.ext.viewcode', #Add links to highlighted source code
 	    'sphinx.ext.napoleon',
 	    'sphinx.ext.coverage', # what is this for?
         'recommonmark', # to read markdown
