@@ -12,6 +12,7 @@ Welcome to Prof Stick's Mostly Good Python Template documentation!
    
    README
    modules
+   code_examples
    ebnf
    
 
