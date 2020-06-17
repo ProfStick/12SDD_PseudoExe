@@ -6,15 +6,13 @@
 Welcome to Prof Stick's Mostly Good Python Template documentation!
 ===================================================================
 
-test this link to the `EBNF <../../docs/pseudocode.ebnf>`_
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
    
    README
    modules
-   `EBNF <../../docs/pseudocode.ebnf>`_
+   ebnf
    
 
 
