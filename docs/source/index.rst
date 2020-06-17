@@ -13,6 +13,8 @@ Welcome to Prof Stick's Mostly Good Python Template documentation!
    
    README
    modules
+
+   :download:`EBNF <docs/pseudocode.ebnf>`
    
 
 

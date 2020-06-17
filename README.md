@@ -60,4 +60,3 @@ pip install rply
 ATM this project is completely untested - we are on this journey together
 
 ## TODO
-add parser.py and codegen.py files to pseudoexe directory
