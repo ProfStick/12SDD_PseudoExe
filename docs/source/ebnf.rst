@@ -1,4 +1,5 @@
-EBNF for PseudoExe
-==================
+EBNF
+====
 
-.. include:: pseudoexe.ebnf
+.. literalinclude:: pseudoexe.ebnf
+  :language: ebnf
