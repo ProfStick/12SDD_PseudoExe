@@ -24,10 +24,11 @@ import shutil
 
 filenames = ['../../README.md', '../pseudoexe.ebnf', '../../starter.pse']
 
-for fn in filenames:
+for fn_src in filenames:
+    fn_dest = fn_src.strip("../")
     try:
-        source = os.path.abspath('../../README.md')
-        dest = os.path.abspath('README.md')
+        source = os.path.abspath(fn_src)
+        dest = os.path.abspath(fn_dest)
         shutil.copy(source, dest)
     except FileNotFoundError:
         print('{} file not found'.format(source))
