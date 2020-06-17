@@ -14,8 +14,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../../module1/'))
 sys.path.insert(0, os.path.abspath('../../pseudoexe/'))
-sys.path.insert(0, os.path.abspath('../../docs/'))
-sys.path.insert(0, os.path.abspath('../../'))
+
 
 # copy the README.md from the root directory - this will overwrite any README.md in the docs/source directory
 # comment out the following if this is not wanted
