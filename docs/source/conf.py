@@ -15,23 +15,12 @@ import sys
 sys.path.insert(0, os.path.abspath('../../module1/'))
 sys.path.insert(0, os.path.abspath('../../pseudoexe/'))
 
-
-# copy the README.md from the root directory - this will overwrite any README.md in the docs/source directory
-# comment out the following if this is not wanted
-
-# RTD requires that all the source documents used to build the docs are in or below the source directory
-# sometimes this is not ideal for the project directory structure
-# this routine copies specified files into the source directory at the time of RTD production
-# it does not affect the git repository
+# -- Docs setup --------------------------------------------------------------
+# RTD requires that all the source documents used to build the docs are in or 
+# below the source directory. Sometimes this is not ideal for the project 
+# directory structure. This routine copies specified files into the source
+# directory at the time of RTD production it does not affect the git repository
 import shutil
-"""
-try:
-    source_readme = os.path.abspath('../../README.md')
-dest_readme = os.path.abspath('README.md')
-    shutil.copy(source_readme, dest_readme)
-except FileNotFoundError:
-    print('{} file not found'.format(source_readme))
-"""
 
 filenames = ['../../README.md', '../pseudoexe.ebnf', '../../starter.pse']
 
@@ -43,7 +32,6 @@ for fn in filenames:
     except FileNotFoundError:
         print('{} file not found'.format(source))
     
-
 # -- Project information -----------------------------------------------------
 
 project = 'Prof Sticks Mostly Good PseudoExe Language Project'
