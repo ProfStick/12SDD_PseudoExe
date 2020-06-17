@@ -6,6 +6,7 @@
 Welcome to Prof Stick's Mostly Good Python Template documentation!
 ===================================================================
 
+test this link to the :download:`EBNF <docs/pseudocode.ebnf>`
 
 .. toctree::
    :maxdepth: 2
