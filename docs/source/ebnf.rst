@@ -1,5 +1,5 @@
 EBNF
 ====
 
-.. literalinclude:: pseudoexe.ebnf
+.. literalinclude:: ../pseudoexe.ebnf
   :language: ebnf
