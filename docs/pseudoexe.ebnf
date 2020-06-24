@@ -1,11 +1,37 @@
-Digit = "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
-Number = <Digit>, {<Digit>};
-
+(*terminals*)
+digit = "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
+operation = "+"|"-"|"*"|"/"|"**"|"%";
 lc_letter = "a"|"b"|"c"|"d"|"e"|"f"|"g"|"h"|"i"|"j"|"k"|"l"|"m"|"n"|"o"|"p"|"q"|"r"|"s"|"t"|"u"|"v"|"w"|"x"|"y"|"z";
 uc_letter = "A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z";
-Letter = <lc_letter>|<uc_letter>;
-Integer = <Digit>, {<Digit>};
 
-Variable = <lc_letter>{<Letter>|<Digit>};
+(*non-terminals*)
+letter = <lc_letter>|<uc_letter>;
 
-assignment = Let <Variable> = <Integer>|<Variable> ;
+integer = <digit>, {<digit>};
+
+variable = <lc_letter>{<letter>|<digit>};
+
+expression = <variable>|<integer>, {<operation>, <variable>|<integer>};
+
+assignment = Let <variable> = <expression>;
+
+output = "Display", <variable>;
+
+statement = <assignment>|<output>|<repetition>;
+
+repetition = "FOR Let", <variable>, "=", <integer>, "TO", <integer>, "STEP", <integer>
+                <statement>
+                {<statement>}
+             "NEXT" <variable>
+
+programName = <uc_letter>, {<letter>};
+
+terminator = "BEGIN"|'END', <programName>
+
+program =<terminator>
+            <statement>
+            {<statements>}
+         <terminator>
+        
+
+
