@@ -55,6 +55,11 @@ pip install rply
 * [LLC](https://llvm.org/docs/CommandGuide/llc.html) An LLVM static compiler
 * [GCC](https://gcc.gnu.org/) or other linking tool
 
+### Other useful references
+
+* [PLY documentation](https://www.dabeaz.com/ply/ply.html#ply_nn3)
+* [Using RPython and RPly to build a language interpreter, part 1](https://joshsharp.com.au/blog/rpython-rply-interpreter-1.html)
+* [RPLY ReadTheDocs](https://rply.readthedocs.io/en/latest/users-guide/lexers.html)
 
 ## NOTES
 ATM this project is completely untested - we are on this journey together
