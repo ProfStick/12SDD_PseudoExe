@@ -1,0 +1,19 @@
+BEGIN Fibonacci
+
+    Let currentNumber = 0
+
+    Display currentNumber
+
+    Let lastNumber = currentNumber
+    Let currentNumber = lastNumber + 1
+
+    Display currentNumber
+
+    FOR Let counter = 0 TO 20 STEP 1
+        Let tempNumber = currentNumber
+        Let currentNumber = currentNumber + lastNumber
+        Let lastNumber = tempNumber
+        Display currentNumber
+    NEXT counter
+
+END Fibonacci
