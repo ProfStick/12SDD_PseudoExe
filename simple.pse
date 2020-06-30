@@ -1,0 +1,7 @@
+BEGIN Simple
+
+    Let meaningOfLife = 42 + 0
+
+    Display meaningOfLife
+
+END Simple

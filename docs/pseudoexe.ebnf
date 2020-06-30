@@ -9,29 +9,27 @@ letter = <lc_letter>|<uc_letter>;
 
 integer = <digit>, {<digit>};
 
+programName = <uc_letter>, {<letter>};
+
 variable = <lc_letter>{<letter>|<digit>};
 
 expression = <variable>|<integer>, {<operation>, <variable>|<integer>};
 
-assignment = Let <variable> = <expression>;
+repetition = "FOR Let", <variable>, "=", <integer>, "TO", <integer>, "STEP", <integer>
+                <sequence>
+             "NEXT" <variable>
 
 output = "Display", <variable>;
 
+assignment = Let <variable> = <expression>;
+
 statement = <assignment>|<output>|<repetition>;
 
-repetition = "FOR Let", <variable>, "=", <integer>, "TO", <integer>, "STEP", <integer>
-                <statement>
-                {<statement>}
-             "NEXT" <variable>
-
-programName = <uc_letter>, {<letter>};
+sequence = <statement>, {<statement>}
 
 terminator = "BEGIN"|'END', <programName>
 
-program =<terminator>
-            <statement>
-            {<statements>}
-         <terminator>
+program =<terminator>, sequence, <terminator>
         
 
 
