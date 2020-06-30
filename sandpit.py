@@ -1,20 +1,14 @@
 """ A sandpit to test code snippets.
 """
+from pseudoexe import pseudoexe as pe
 
-# test of logic for sarter.pse
+test_test="""
+BEGIN 
+    42 
+END
+"""
+lexer = pe.Lexer().get_lexer()
+tokens = lexer.lex(test_test)
 
-currentNumber = 0
-
-print(currentNumber)
-
-lastNumber = currentNumber
-currentNumber = lastNumber + 1
-
-print(currentNumber)
-
-for counter in range(1, 20, 1):
-    tempNumber = currentNumber
-    currentNumber = currentNumber + lastNumber
-    lastNumber = tempNumber
-    print(currentNumber)
-
+for t in tokens:
+    print(t)
