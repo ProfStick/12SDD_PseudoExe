@@ -39,6 +39,21 @@ class Lexer(object):
 
         self.lexer.add("BEGIN", r"BEGIN")
         self.lexer.add("END", r"END")
+        self.lexer.add("PRINT", r"Display")
+        self.lexer.add("LET", r"Let")
+        self.lexer.add("FOR", r"FOR")
+        self.lexer.add("TO", r"TO")
+        self.lexer.add("STEP", r"STEP")
+        self.lexer.add("NEXT", r"NEXT")
+
+
+        self.lexer.add("EQUALS", r"\=")
+        self.lexer.add("PLUS", r"\+")
+        self.lexer.add("MINUS", r"\-")
+        self.lexer.add("INDICE", r"\**")
+        self.lexer.add("MULTIPLY", r"\*")
+        self.lexer.add("DIVIDE", r"\/")
+        self.lexer.add("MOD", r"\%")        
 
         self.lexer.ignore('\s+')
         self.lexer.ignore('\n+')

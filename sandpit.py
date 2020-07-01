@@ -3,7 +3,12 @@
 from pseudoexe import pseudoexe as pe
 
 test_test="""
-BEGIN 
+BEGIN
+    Let
+    Display
+    4 = 2 * 2
+    ==
+    36 = 6 ** 2
     42 
 END
 """
