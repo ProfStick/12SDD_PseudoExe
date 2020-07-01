@@ -17,8 +17,11 @@ TOKENS = [("TERM_BEGIN", "BEGIN"),
         ("TERM_END", "END"),
         ('OP_DISPLAY', 'Display'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
-        ('INTEGER','[0-9]+'),
+        ('VARIABLE', '[a-z][a-zA-Z0-9]*'),
+        ('INTEGER','-?[0-9]+'),
+        ('OP_ASSIGN','='),
         ('OPERATION','[+-/*]'),
+
         ]
 
 class Lexer(object):
