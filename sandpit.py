@@ -1,4 +1,4 @@
-from pseudoexe.pseudoexe import Lexer
+from pseudoexe.pseudoexe import Lexer, Parser
 
 fn = 'simple.pse'
 
@@ -10,5 +10,10 @@ print(text)
 lexer = Lexer().get_lexer()
 tokens = lexer.lex(text)
 
-for t in tokens:
-    print(t)
+# for t in tokens:
+#     print(t)
+
+pg = Parser()
+pg.parse()
+parser = pg.get_parser()
+output = parser.parse(tokens).eval()

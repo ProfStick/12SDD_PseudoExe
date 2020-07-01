@@ -13,7 +13,9 @@ programName = <uc_letter>, {<letter>};
 
 variable = <lc_letter>{<letter>|<digit>};
 
-expression = <variable>|<integer>, {<operation>, <variable>|<integer>};
+value = <variable>|<integer>
+
+expression = value, {<operation>, <value>};
 
 repetition = "FOR Let", <variable>, "=", <integer>, "TO", <integer>, "STEP", <integer>
                 <sequence>

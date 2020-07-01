@@ -1,7 +1,5 @@
 BEGIN Simple
 
-    Let meaningOfLife = 42 + 0
-
-    Display meaningOfLife
+    Display 42
 
 END Simple

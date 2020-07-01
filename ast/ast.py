@@ -11,6 +11,13 @@ examples.
 
 """
 
+class Number():
+    def __init__(self, value):
+        self.value = value
+
+    def eval(self):
+        return int(self.value)
+
 class BinaryOp():
     """binary operations super class."""
     def __init__(self, left, right):
@@ -22,6 +29,7 @@ class Sum(BinaryOp):
     """Sum left and right"""
     def eval(self):
         return self.left.eval() + self.right.eval()
+
 
 
 class Display():
