@@ -11,7 +11,7 @@ Defines a lexicon and parser for the PseudoExe language.
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from ast.ast import Sum, Display, Number
+from ast.ast import Sum, Display, Number, Sequence
 
 TOKENS = [("TERM_BEGIN", "BEGIN"),
         ("TERM_END", "END"),
@@ -97,17 +97,32 @@ class Parser(object):
             NoError: but if it did you would describe it here
         """
 
-        @self.pg.production('program : TERM_BEGIN PROG_NAME output TERM_END PROG_NAME')
+        @self.pg.production('program : TERM_BEGIN PROG_NAME sequence TERM_END PROG_NAME')
         def program(p):
             return p[2]
+
+        
+        @self.pg.production('sequence : sequence statement')
+        def sequence(p):
+            return Sequence(p)
+
+        @self.pg.production('sequence : statement')
+        def sequence_statement(p):
+            return p[0]
+
+        @self.pg.production('statement : output')
+        def statememnt_out(p):
+            return p[0]
 
         @self.pg.production('output : OP_DISPLAY value')
         def output(p):
             return Display(p[1])
 
+
         @self.pg.production('value : INTEGER')
         def value(p):
             return Number(p[0].value)
+
 
         # @self.pg.production('sequence : statement')
         # @self.pg.production('sequence : statement sequence')

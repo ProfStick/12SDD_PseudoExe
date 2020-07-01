@@ -10,7 +10,15 @@ examples.
   TODO
 
 """
-
+class Sequence():
+    def __init__(self, value):
+        self.value = value
+    
+    def eval(self):
+        for s in self.value:
+            s.eval()
+        
+        
 class Number():
     def __init__(self, value):
         self.value = value
@@ -29,7 +37,6 @@ class Sum(BinaryOp):
     """Sum left and right"""
     def eval(self):
         return self.left.eval() + self.right.eval()
-
 
 
 class Display():
