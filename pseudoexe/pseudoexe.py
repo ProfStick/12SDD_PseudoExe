@@ -13,24 +13,15 @@ from rply import LexerGenerator
 from rply import ParserGenerator
 from ast.ast import Sum, Display, Number, Sequence
 
-TOKENS = [("TERM_BEGIN", "BEGIN"),
-        ("TERM_END", "END"),
-        ('OP_DISPLAY', 'Display'),
+TOKENS = [('KW_BEGIN', 'BEGIN'),
+        ('KW_END', 'END'),
+        ('KW_DISPLAY', 'DISPLAY'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
-        ('VARIABLE', '[a-z][a-zA-Z0-9]*'),
         ('INTEGER','-?[0-9]+'),
-        ('OP_ASSIGN','='),
-        ('OPERATION','[+-/*]'),
-
         ]
 
 class Lexer(object):
     """Defines a lexer for the PseudoExe language.
-
-    Longer class information....
-    
-    Attributes:
-        n/a
     """
 
     def __init__(self):
@@ -57,7 +48,7 @@ class Lexer(object):
 
         
         #this is just to catch all the errors so remove when not debug
-        self.lexer.add("UNDEF", ".")
+        # self.lexer.add('undef', '.')
 
         # Ignore spaces
         self.lexer.ignore('\s+')
@@ -69,11 +60,6 @@ class Lexer(object):
 
 class Parser(object):
     """Defines a Parser for the PseudoExe language.
-
-    Longer class information....
-    
-    Attributes:
-        
     """
 
     def __init__(self):
@@ -84,72 +70,21 @@ class Parser(object):
         self.pg = ParserGenerator(tokens)
 
     def parse(self):
-        """Longer description of desired functionality
-
-        Args:
-            required_variable: A required argument
-            optional_variable: An optional argument
-
-        Returns:
-            None: but if it did you would describe it here
-
-        Raises:
-            NoError: but if it did you would describe it here
+        """define the syntax for the language
         """
 
-        @self.pg.production('program : TERM_BEGIN PROG_NAME sequence TERM_END PROG_NAME')
+        @self.pg.production('program : KW_BEGIN PROG_NAME output KW_END PROG_NAME')
         def program(p):
             return p[2]
 
         
-        @self.pg.production('sequence : sequence statement')
-        def sequence(p):
-            return Sequence(p)
-
-        @self.pg.production('sequence : statement')
-        def sequence_statement(p):
-            return p[0]
-
-        @self.pg.production('statement : output')
-        def statememnt_out(p):
-            return p[0]
-
-        @self.pg.production('output : OP_DISPLAY value')
+        @self.pg.production('output : KW_DISPLAY value')
         def output(p):
             return Display(p[1])
-
 
         @self.pg.production('value : INTEGER')
         def value(p):
             return Number(p[0].value)
-
-
-        # @self.pg.production('sequence : statement')
-        # @self.pg.production('sequence : statement sequence')
-        # def sequence(p):
-        #     pass
-
-        # @self.pg.production('statement : assignment')
-        # @self.pg.production('statement : output')
-        # @self.pg.production('statement : repetition')
-        # def statement(p):
-        #     pass
-
-        # @self.pg.production('assignment : OP_LET VARIABLE OP_ASSIGN expression')
-        # def assignment(p):
-        #     pass
-
-
-        # @self.pg.production('repetition : OP_FOR OP_LET VARIABLE OP_ASSIGN INTEGER OP_TO INTEGER OP_STEP INTEGER'
-        #     ' sequence OP_NEXT VARIABLE')
-        # def repetition(p):
-        #     pass
-        
-        # @self.pg.production('expression : value')
-        # @self.pg.production('expression : value OPERATION value')
-        # def expression(p):
-        #     pass
-
 
         @self.pg.error
         def error_handle(token):

@@ -1,37 +1,13 @@
-(*terminals*)
-digit = "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
-operation = "+"|"-"|"*"|"/"|"**"|"%";
-lc_letter = "a"|"b"|"c"|"d"|"e"|"f"|"g"|"h"|"i"|"j"|"k"|"l"|"m"|"n"|"o"|"p"|"q"|"r"|"s"|"t"|"u"|"v"|"w"|"x"|"y"|"z";
-uc_letter = "A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z";
-
-(*non-terminals*)
-letter = <lc_letter>|<uc_letter>;
+digit = '0'|'1'|...|'9';
+lc_letter = 'a'|'b'|...|'z';
+uc_letter = 'A'|'B'|...|'Z';
 
 integer = <digit>, {<digit>};
 
 programName = <uc_letter>, {<letter>};
 
-variable = <lc_letter>{<letter>|<digit>};
+output = 'DISPLAY', <integer>;
 
-value = <variable>|<integer>
+terminator = 'BEGIN'|'END', <programName>;
 
-expression = value, {<operation>, <value>};
-
-repetition = "FOR Let", <variable>, "=", <integer>, "TO", <integer>, "STEP", <integer>
-                <sequence>
-             "NEXT" <variable>
-
-output = "Display", <variable>;
-
-assignment = Let <variable> = <expression>;
-
-statement = <assignment>|<output>|<repetition>;
-
-sequence = <statement>, {<statement>}
-
-terminator = "BEGIN"|'END', <programName>
-
-program =<terminator>, sequence, <terminator>
-        
-
-
+program = <terminator>, output, <terminator>;

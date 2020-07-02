@@ -11,6 +11,7 @@ Welcome to Prof Stick's Mostly Good PseudoExe Language Project!
    :caption: Contents:
    
    README
+   history
    modules
    code_examples
    metalanguage
