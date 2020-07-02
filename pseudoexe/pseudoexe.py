@@ -14,7 +14,7 @@ from rply import ParserGenerator
 from ast.ast import Sum, Display, Number, Sequence
 
 TOKENS = [('KW_BEGIN', 'BEGIN'),
-        ('KW_END', 'END'),
+    ('KW_END', 'END'),
         ('KW_DISPLAY', 'DISPLAY'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
         ('INTEGER','-?[0-9]+'),
