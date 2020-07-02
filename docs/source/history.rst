@@ -5,4 +5,4 @@ A historyvof the project
    :caption: Contents:
    
    log
-      sprint001
+   sprint001
