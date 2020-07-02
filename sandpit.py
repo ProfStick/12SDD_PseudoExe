@@ -1,14 +1,19 @@
-""" A sandpit to test code snippets.
-"""
-from pseudoexe import pseudoexe as pe
+from pseudoexe.pseudoexe import Lexer, Parser
 
-test_test="""
-BEGIN 
-    42 
-END
-"""
-lexer = pe.Lexer().get_lexer()
-tokens = lexer.lex(test_test)
+fn = 'simple.pse'
 
-for t in tokens:
-    print(t)
+with open(fn, 'r') as file:
+    text = file.read()
+
+print(text)
+
+lexer = Lexer().get_lexer()
+tokens = lexer.lex(text)
+
+# for t in tokens:
+#     print(t)
+
+pg = Parser()
+pg.parse()
+parser = pg.get_parser()
+output = parser.parse(tokens).eval()

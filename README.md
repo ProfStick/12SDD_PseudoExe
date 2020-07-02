@@ -12,7 +12,7 @@ A project for Year 12 Software Design and Development which will allow students 
 Theoretical discussion of metalanguages, and lexical and syntactical analysis can be quite dry and often the importance is lost on students who wonder why the hell they are learning this stuff that they will never use. The intent here is to introduce these concepts through the challenge of developing their own executable language. It also addresses the issue that a syntactically rigid pseudocode like that specified in the [SDD Course Specifications](https://educationstandards.nsw.edu.au/wps/wcm/connect/44325629-51c6-4330-8bf8-662d5cfbe5fb/software-design-development-course-specs.pdf?MOD=AJPERES&CVID=) defeats the whole purpose of pseudocode (don't get me started)
 
 ## The Task
-The initial task is to write an executable version of pseudocode that can print out the first 20 numbers in the fibonacci series. The PseudoExe files will have a suffix of *.pse and the code for the initial challenge `starter.pse` is:
+The initial task is to write an executable version of pseudocode that can print out the first 20 numbers in the fibonacci series. The PseudoExe files will have a suffix of *.pse and the code for the initial challenge `fibonacci.pse` is:
 
 ```
 BEGIN starter
