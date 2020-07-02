@@ -2,11 +2,11 @@
 The first sprint was to write the EBNF, lexer, parser, ast and main requires to run the following simple script - script001.pse:
 
 ```text
-BEGIN Simple
+BEGIN Script001
 
     DISPLAY 42
 
-END Simple
+END Script001
 ```
 ### Sprint001 EBNF
 ```ebnf
@@ -35,15 +35,14 @@ Defines a lexicon and parser for the PseudoExe language.
   Typical usage example:
     TODO
 """
-
-# sys.path.append(".")
+import sys
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from ast.ast import Sum, Display, Number, Sequence
+from ast.ast import Display, Number
 
 TOKENS = [('KW_BEGIN', 'BEGIN'),
-        ('KW_END', 'END'),
+    ('KW_END', 'END'),
         ('KW_DISPLAY', 'DISPLAY'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
         ('INTEGER','-?[0-9]+'),
@@ -66,7 +65,6 @@ class Lexer(object):
 
         Returns:
             None: but if it did you would describe it here
-
 
         Raises:
             NoError: but if it did you would describe it here
@@ -106,7 +104,6 @@ class Parser(object):
         def program(p):
             return p[2]
 
-        
         @self.pg.production('output : KW_DISPLAY value')
         def output(p):
             return Display(p[1])
@@ -122,41 +119,23 @@ class Parser(object):
     def get_parser(self):
         return self.pg.build()
 ```
+
 ### Sprint001 Abstraxct Syntax Tree
 ```python
 """ast - Abstract syntax tree for pseudoexe.
-"""
-class Sequence():
-    def __init__(self, value):
-        self.value = value
-    
-    def eval(self):
-        for s in self.value:
-            s.eval()
-        
+"""       
         
 class Number():
+    '''Evaluates an integer'''
     def __init__(self, value):
         self.value = value
 
     def eval(self):
         return eval(self.value)
 
-class BinaryOp():
-    """binary operations super class."""
-    def __init__(self, left, right):
-        self.left = left
-        self.right = right
-
-
-class Sum(BinaryOp):
-    """Sum left and right"""
-    def eval(self):
-        return self.left.eval() + self.right.eval()
-
 
 class Display():
-    """Output to the standard output."""
+    '''Output to the standard output.'''
     def __init__(self, value):
         self.value = value
 
@@ -174,6 +153,8 @@ def lexer_print(tokens):
     
     this needs to be done inside a function
     or some weird $eof token is generated
+    becasue iterating through a lexer stream
+    seems to destroy it
     
     Args:
         tokens: a list of tokens (token_type, token_name)
@@ -218,19 +199,19 @@ if __name__ == "__main__":
 
 ### Sprint001 Output
 ```text
-BEGIN Simple  
+BEGIN Script001
 
-    DISPLAY 42
+    DISPLAY 42 
 
-END Simple
+END Script001
  
 
 Token('KW_BEGIN', 'BEGIN')
-Token('PROG_NAME', 'Simple')
+Token('PROG_NAME', 'Script001')
 Token('KW_DISPLAY', 'DISPLAY')
 Token('INTEGER', '42')
 Token('KW_END', 'END')
-Token('PROG_NAME', 'Simple')
+Token('PROG_NAME', 'Script001')
 
 
 42

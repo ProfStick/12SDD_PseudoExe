@@ -1,5 +1,5 @@
-BEGIN Simple
+BEGIN Script001
 
     DISPLAY 42
 
-END Simple
+END Script001

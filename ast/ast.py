@@ -1,36 +1,17 @@
 """ast - Abstract syntax tree for pseudoexe.
-"""
-class Sequence():
-    def __init__(self, value):
-        self.value = value
-    
-    def eval(self):
-        for s in self.value:
-            s.eval()
-        
+"""        
         
 class Number():
+    '''Evaluates an integer'''
     def __init__(self, value):
         self.value = value
 
     def eval(self):
         return eval(self.value)
 
-class BinaryOp():
-    """binary operations super class."""
-    def __init__(self, left, right):
-        self.left = left
-        self.right = right
-
-
-class Sum(BinaryOp):
-    """Sum left and right"""
-    def eval(self):
-        return self.left.eval() + self.right.eval()
-
 
 class Display():
-    """Output to the standard output."""
+    '''Output to the standard output.'''
     def __init__(self, value):
         self.value = value
 

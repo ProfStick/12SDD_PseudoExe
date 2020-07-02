@@ -6,12 +6,11 @@ Defines a lexicon and parser for the PseudoExe language.
   Typical usage example:
     TODO
 """
-
-# sys.path.append(".")
+import sys
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from ast.ast import Sum, Display, Number, Sequence
+from ast.ast import Display, Number
 
 TOKENS = [('KW_BEGIN', 'BEGIN'),
     ('KW_END', 'END'),
@@ -37,7 +36,6 @@ class Lexer(object):
 
         Returns:
             None: but if it did you would describe it here
-
 
         Raises:
             NoError: but if it did you would describe it here
@@ -77,7 +75,6 @@ class Parser(object):
         def program(p):
             return p[2]
 
-        
         @self.pg.production('output : KW_DISPLAY value')
         def output(p):
             return Display(p[1])

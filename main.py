@@ -6,6 +6,8 @@ def lexer_print(tokens):
     
     this needs to be done inside a function
     or some weird $eof token is generated
+    becasue iterating through a lexer stream
+    seems to destroy it
     
     Args:
         tokens: a list of tokens (token_type, token_name)
