@@ -5,4 +5,5 @@ Modules
    :maxdepth: 4
 
    pseudoexe
+   ast
    module1

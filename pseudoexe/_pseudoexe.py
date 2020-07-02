@@ -11,17 +11,22 @@ Defines a lexicon and parser for the PseudoExe language.
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from ast.ast import Sum, Display, Number, Sequence
+from ast.ast import Sum, Display
 
 TOKENS = [("TERM_BEGIN", "BEGIN"),
         ("TERM_END", "END"),
         ('OP_DISPLAY', 'Display'),
+        ('OP_LET', 'Let'),
+        ('OP_FOR', 'FOR'),
+        ('OP_STEP', 'STEP'),
+        ('OP_TO', 'TO'),
+        ('OP_NEXT', 'NEXT'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
         ('VARIABLE', '[a-z][a-zA-Z0-9]*'),
-        ('INTEGER','-?[0-9]+'),
+        ('INTEGER','[0-9]+'),
         ('OP_ASSIGN','='),
         ('OPERATION','[+-/*]'),
-
+        ('OP_ADD','\+'),
         ]
 
 class Lexer(object):
@@ -101,54 +106,40 @@ class Parser(object):
         def program(p):
             return p[2]
 
-        
-        @self.pg.production('sequence : sequence statement')
-        def sequence(p):
-            return Sequence(p)
+        @self.pg.production('value : VARIABLE')
+        @self.pg.production('value : INTEGER')
+        def value(p):
+            if p[0].gettokentype() == 'INTEGER':
+                return int(p[0].getstr())
 
         @self.pg.production('sequence : statement')
-        def sequence_statement(p):
-            return p[0]
+        @self.pg.production('sequence : statement sequence')
+        def sequence(p):
+            pass
 
+        @self.pg.production('statement : assignment')
         @self.pg.production('statement : output')
-        def statememnt_out(p):
-            return p[0]
+        @self.pg.production('statement : repetition')
+        def statement(p):
+            pass
+
+        @self.pg.production('assignment : OP_LET VARIABLE OP_ASSIGN expression')
+        def assignment(p):
+            pass
 
         @self.pg.production('output : OP_DISPLAY value')
         def output(p):
-            return Display(p[1])
+            print('hello')
 
-
-        @self.pg.production('value : INTEGER')
-        def value(p):
-            return Number(p[0].value)
-
-
-        # @self.pg.production('sequence : statement')
-        # @self.pg.production('sequence : statement sequence')
-        # def sequence(p):
-        #     pass
-
-        # @self.pg.production('statement : assignment')
-        # @self.pg.production('statement : output')
-        # @self.pg.production('statement : repetition')
-        # def statement(p):
-        #     pass
-
-        # @self.pg.production('assignment : OP_LET VARIABLE OP_ASSIGN expression')
-        # def assignment(p):
-        #     pass
-
-
-        # @self.pg.production('repetition : OP_FOR OP_LET VARIABLE OP_ASSIGN INTEGER OP_TO INTEGER OP_STEP INTEGER'
-        #     ' sequence OP_NEXT VARIABLE')
-        # def repetition(p):
-        #     pass
+        @self.pg.production('repetition : OP_FOR OP_LET VARIABLE OP_ASSIGN INTEGER OP_TO INTEGER OP_STEP INTEGER'
+            ' sequence OP_NEXT VARIABLE')
+        def repetition(p):
+            pass
         
-        # @self.pg.production('expression : value')
-        # @self.pg.production('expression : value OPERATION value')
-        # def expression(p):
-        #     pass
+        @self.pg.production('expression : value')
+        @self.pg.production('expression : value OPERATION value')
+        def expression(p):
+            pass
 
 
         @self.pg.error
