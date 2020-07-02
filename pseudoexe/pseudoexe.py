@@ -6,11 +6,10 @@ Defines a lexicon and parser for the PseudoExe language.
   Typical usage example:
     TODO
 """
-import sys
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from pse_ast.pse_ast import Display, Number
+# from pse_ast.pse_ast import Display, Number
 
 TOKENS = [('KW_BEGIN', 'BEGIN'),
     ('KW_END', 'END'),
