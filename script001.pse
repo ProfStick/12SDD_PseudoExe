@@ -1,0 +1,5 @@
+BEGIN Simple
+
+    DISPLAY 42
+
+END Simple

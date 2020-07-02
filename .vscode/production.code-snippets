@@ -24,4 +24,27 @@
 	],
 	"description": "production rules for rply parser"
 	}
+
+	"function template": {
+		"scope": "python",
+		"prefix": "func",
+		"body": [
+			"def function_name(required_variable, optional_variable=None):",
+    		"    '''Short description.",
+			"    ",
+    		"    Longer description of desired functionality",
+			"    ",
+    		"    Args:",
+        	"        required_variable: A required argument",
+        	"        optional_variable: An optional argument",
+			"    ",
+			"    Returns:",
+			"        None: but if it did you would describe it here",
+			"    Raises:",
+        	"        NoError: but if it did you would describe it here",
+    		"    '''"
+    		"    return None",
+		],
+		"description": "template for a python function"
+	}
 }
