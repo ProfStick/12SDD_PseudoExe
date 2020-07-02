@@ -1,7 +1,7 @@
 pseudoexe module
 ==============
 
-.. automodule:: pseudoexe
+.. automodule:: pseudoexe.pseudoexe
    :members:
    :undoc-members:
    :show-inheritance:
