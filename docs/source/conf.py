@@ -12,9 +12,9 @@
 #
 import os
 import sys
+sys.path.insert(0, os.path.abspath('../../pse_ast/'))
 sys.path.insert(0, os.path.abspath('../../module1/'))
 sys.path.insert(0, os.path.abspath('../../pseudoexe/'))
-sys.path.insert(0, os.path.abspath('../../ast/'))
 
 # -- Docs setup --------------------------------------------------------------
 # RTD requires that all the source documents used to build the docs are in or 

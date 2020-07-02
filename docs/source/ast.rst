@@ -1,7 +1,7 @@
-ast module
+pse_ast module
 ==============
 
-.. automodule:: ast
+.. automodule:: pse_ast
    :members:
    :undoc-members:
    :show-inheritance:
