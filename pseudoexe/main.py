@@ -1,5 +1,5 @@
 import copy
-from pseudoexe.pseudoexe import Lexer, Parser
+from pseudoexe import Lexer, Parser
 
 def lexer_print(tokens):
     '''prints a list of tokens from a lexer.
@@ -33,11 +33,11 @@ def main():
     # open the script and print its contents
     fn = 'script001.pse'
     with open(fn, 'r') as file:
-        text = file.read()
+        script = file.read()
 
-    print(f'{text} \n')
+    print(f'{script} \n')
 
-    tokens = lexer.lex(text)
+    tokens = lexer.lex(script)
 
     # lexer streams seem pretty sensitive
     # if you do anything with them they break

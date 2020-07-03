@@ -1,20 +1,18 @@
 """PseudoExe language project.
 
-Defines a lexicon and parser for the PseudoExe language.
+Defines a lexer and parser for the PseudoExe language.
 
 
   Typical usage example:
     TODO
 """
 
-# sys.path.append(".")
-
 from rply import LexerGenerator
 from rply import ParserGenerator
-from ast.ast import Sum, Display, Number, Sequence
+from pse_ast import Display, Number
 
 TOKENS = [('KW_BEGIN', 'BEGIN'),
-        ('KW_END', 'END'),
+    ('KW_END', 'END'),
         ('KW_DISPLAY', 'DISPLAY'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
         ('INTEGER','-?[0-9]+'),
@@ -37,7 +35,6 @@ class Lexer(object):
 
         Returns:
             None: but if it did you would describe it here
-
 
         Raises:
             NoError: but if it did you would describe it here
@@ -77,7 +74,6 @@ class Parser(object):
         def program(p):
             return p[2]
 
-        
         @self.pg.production('output : KW_DISPLAY value')
         def output(p):
             return Display(p[1])

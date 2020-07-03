@@ -12,8 +12,9 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../module1/'))
+# sys.path.insert(0, os.path.abspath('../../pse_ast/'))
 sys.path.insert(0, os.path.abspath('../../pseudoexe/'))
+sys.path.insert(0, os.path.abspath('../../module1/'))
 
 # -- Docs setup --------------------------------------------------------------
 # RTD requires that all the source documents used to build the docs are in or 
@@ -22,7 +23,7 @@ sys.path.insert(0, os.path.abspath('../../pseudoexe/'))
 # directory at the time of RTD production it does not affect the git repository
 import shutil
 
-filenames = ['../../README.md', '../pseudoexe.ebnf', '../../starter.pse']
+filenames = ['../../README.md', '../pseudoexe.ebnf', '../../fibonacci.pse']
 
 for fn_src in filenames:
     fn_dest = fn_src.strip("../")
