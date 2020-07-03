@@ -49,7 +49,7 @@ def main():
     lexer_print(copy.copy(tokens))
     
     # now the syntactical analysis
-    output = parser.parse(tokens).eval()
+    parser.parse(tokens).eval()
 
 if __name__ == "__main__":
     main()
