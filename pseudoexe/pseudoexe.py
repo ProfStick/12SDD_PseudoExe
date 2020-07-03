@@ -1,74 +1,66 @@
-"""PseudoExe language project.
+'''PseudoExe language project.
 
-Defines a lexer and parser for the PseudoExe language.
+Defines a lexicon and parser for the PseudoExe language.
 
 
   Typical usage example:
     TODO
-"""
+'''
+import sys
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from pse_ast import Display, Number
+from ast import Display, Number
 
+# define the tokens to be used for the lexical analysis based on the EBNF
 TOKENS = [('KW_BEGIN', 'BEGIN'),
-    ('KW_END', 'END'),
+        ('KW_END', 'END'),
         ('KW_DISPLAY', 'DISPLAY'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
         ('INTEGER','-?[0-9]+'),
         ]
 
 class Lexer(object):
-    """Defines a lexer for the PseudoExe language.
-    """
+    '''Defines a lexer for the PseudoExe language.'''
 
     def __init__(self):
-        """Inits the lexer."""
+        '''Inits the lexer.'''
         self.lexer = LexerGenerator()
 
 
     def _add_tokens(self):
-        """add new tokens to the lexer
-
-        Args:
-            n/a
-
-        Returns:
-            None: but if it did you would describe it here
-
-        Raises:
-            NoError: but if it did you would describe it here
-        """
+        '''add new tokens to the lexer.'''
 
         for t in TOKENS:
             self.lexer.add(*t)
-
-        
-        #this is just to catch all the errors so remove when not debug
-        # self.lexer.add('undef', '.')
 
         # Ignore spaces
         self.lexer.ignore('\s+')
         self.lexer.ignore("\n+")
 
     def get_lexer(self):
+        '''build and return the lexer.'''
         self._add_tokens()
         return self.lexer.build()
 
 class Parser(object):
-    """Defines a Parser for the PseudoExe language.
-    """
+    '''Defines a Parser for the PseudoExe language.'''
 
     def __init__(self):
-        """Inits parser generator.
-        """
-        # extract the token makes from TOKENS as a list
+        '''Inits parser generator.
+        
+        Extracts the token names from the list of tokens (TOKENS)
+        and passes them to the parser generator'''
+
+        # extract the token names from TOKENS as a list
         tokens = [t[0] for t in TOKENS]
         self.pg = ParserGenerator(tokens)
 
     def parse(self):
-        """define the syntax for the language
-        """
+        '''define the syntax for the language based on the EBNF.
+
+        parses the script and passes the results to the abstract syntax tree (AST)
+        '''
 
         @self.pg.production('program : KW_BEGIN PROG_NAME output KW_END PROG_NAME')
         def program(p):

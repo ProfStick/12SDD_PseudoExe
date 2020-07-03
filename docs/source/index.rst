@@ -1,9 +1,6 @@
-.. Prof Sticks Mostly Good Python Template documentation master file, created by
-   sphinx-quickstart on Sat May 30 20:05:36 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Aurora 12SDD PseudoExe Language Project.
 
-Welcome to Prof Stick's Mostly Good PseudoExe Language Project!
+Welcome to the Aurora 12SDD PseudoExe Language Project!
 ===================================================================
 
 .. toctree::
@@ -11,7 +8,7 @@ Welcome to Prof Stick's Mostly Good PseudoExe Language Project!
    :caption: Contents:
    
    README
-   history
+   log
    modules
    code_examples
    metalanguage

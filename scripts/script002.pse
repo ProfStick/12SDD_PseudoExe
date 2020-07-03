@@ -1,0 +1,7 @@
+BEGIN Script002
+
+    DISPLAY 42
+
+    DISPLAY 666
+
+END Script002

@@ -9,10 +9,10 @@ We originally broke this into issues which were asigned to individuals such as:
 * write the railroad diagrams
 * write the lexer etc.
 
-However it quickly became apparent that this was a large and complex task and we ould be better to adopt the agile approach with eacxh 'sprint'representing a very small increment and students rotating the tasks so that each got a chance to develop proficiency in different tasks.
+However it quickly became apparent that this was a large and complex task and we would be better to adopt the agile approach with each 'sprint'representing a very small increment and students rotating the tasks so that each got a chance to develop broad proficiency and understanding.
 
 ## Sprint 001
-The first sprint was to write the EBNF, lexer, parser, ast and main requires to run the following simple script - script001.pse:
+The first sprint was to write the EBNF, lexer, parser, abstract syntax tree (AST) and main program required to run a very simple script - script001.pse:
 
 ```text
 BEGIN Script001
@@ -52,66 +52,57 @@ import sys
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from ast.ast import Display, Number
+from ast import Display, Number
 
+# define the tokens to be used for the lexical analysis based on the EBNF
 TOKENS = [('KW_BEGIN', 'BEGIN'),
-    ('KW_END', 'END'),
+        ('KW_END', 'END'),
         ('KW_DISPLAY', 'DISPLAY'),
         ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
         ('INTEGER','-?[0-9]+'),
         ]
 
 class Lexer(object):
-    """Defines a lexer for the PseudoExe language.
-    """
+    '''Defines a lexer for the PseudoExe language.'''
 
     def __init__(self):
-        """Inits the lexer."""
+        '''Inits the lexer.'''
         self.lexer = LexerGenerator()
 
 
     def _add_tokens(self):
-        """add new tokens to the lexer
-
-        Args:
-            n/a
-
-        Returns:
-            None: but if it did you would describe it here
-
-        Raises:
-            NoError: but if it did you would describe it here
-        """
+        '''add new tokens to the lexer.'''
 
         for t in TOKENS:
             self.lexer.add(*t)
-
-        
-        #this is just to catch all the errors so remove when not debug
-        # self.lexer.add('undef', '.')
 
         # Ignore spaces
         self.lexer.ignore('\s+')
         self.lexer.ignore("\n+")
 
     def get_lexer(self):
+        '''build and return the lexer.'''
         self._add_tokens()
         return self.lexer.build()
 
 class Parser(object):
-    """Defines a Parser for the PseudoExe language.
-    """
+    '''Defines a Parser for the PseudoExe language.'''
 
     def __init__(self):
-        """Inits parser generator.
-        """
-        # extract the token makes from TOKENS as a list
+        '''Inits parser generator.
+        
+        Extracts the token names from the list of tokens (TOKENS)
+        and passes them to the parser generator'''
+
+        # extract the token names from TOKENS as a list
         tokens = [t[0] for t in TOKENS]
         self.pg = ParserGenerator(tokens)
 
     def parse(self):
-        """define the syntax for the language
-        """
+        '''define the syntax for the language based on the EBNF.
+
+        parses the script and passes the results to the abstract syntax tree (AST)
+        '''
 
         @self.pg.production('program : KW_BEGIN PROG_NAME output KW_END PROG_NAME')
         def program(p):

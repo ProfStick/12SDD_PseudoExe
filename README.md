@@ -1,4 +1,4 @@
-# Prof Stick's Mostly Good PseudoExe Project
+# Aurora 12SDD PseudoExe Language Project
 
 A project for Year 12 Software Design and Development which will allow students to explore:
 * Machine code and the CPU
@@ -12,28 +12,28 @@ A project for Year 12 Software Design and Development which will allow students 
 Theoretical discussion of metalanguages, and lexical and syntactical analysis can be quite dry and often the importance is lost on students who wonder why the hell they are learning this stuff that they will never use. The intent here is to introduce these concepts through the challenge of developing their own executable language. It also addresses the issue that a syntactically rigid pseudocode like that specified in the [SDD Course Specifications](https://educationstandards.nsw.edu.au/wps/wcm/connect/44325629-51c6-4330-8bf8-662d5cfbe5fb/software-design-development-course-specs.pdf?MOD=AJPERES&CVID=) defeats the whole purpose of pseudocode (don't get me started)
 
 ## The Task
-The initial task is to write an executable version of pseudocode that can print out the first 20 numbers in the fibonacci series. The PseudoExe files will have a suffix of *.pse and the code for the initial challenge `fibonacci.pse` is:
+The initial task is to write an executable version of pseudocode that can print out the fibonacci series. The PseudoExe scripts will have a suffix of *.pse. The script for the ultimate goal is `fibonacci.pse` is:
 
 ```
-BEGIN starter
+BEGIN Fibonacci
 
-Let currentNumber = 0
+LET currentNumber = 0
 
-Display currentNumber
+DISPLAY currentNumber
 
-Let lastNumber = currentNumber
-Let currentNumber = lastNumber + 1
+LET prevNumber = currentNumber
+LET currentNumber = prevNumber + 1
 
-Display currentNumber
+DISPLAY currentNumber
 
-FOR Let counter = 0 TO 20 STEP 1
-    Let tempNumber = currentNumber
-    Let currentNumber = currentNumber + lastNumber
-    Let lastNumber = tempNumber
-    Display currentNumber
+FOR LET counter = 0 TO 20 STEP 1
+    LET tempNumber = currentNumber
+    LET currentNumber = currentNumber + prevNumber
+    LET prevNumber = tempNumber
+    DISPLAY currentNumber
 NEXT counter
 
-END starter
+END Fibonacci
 ```
 
 ## Resources
@@ -62,6 +62,6 @@ pip install rply
 * [RPLY ReadTheDocs](https://rply.readthedocs.io/en/latest/users-guide/lexers.html)
 
 ## NOTES
-ATM this project is completely untested - we are on this journey together
+ATM this project is compLETely untested - we are on this journey together
 
 ## TODO

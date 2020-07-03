@@ -1,5 +1,5 @@
-"""ast - Pseudoexe abstract syntax tree.
-"""        
+'''PseudoExe abstract syntax tree.
+'''         
         
 class Number():
     '''Evaluates an integer'''
