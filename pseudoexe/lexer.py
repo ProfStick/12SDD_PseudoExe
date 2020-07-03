@@ -17,6 +17,8 @@ Defines a lexicon for the PseudoExe language.
     tokens = lexer.lex(script)
 """
 
+from rply import LexerGenerator
+
 class Lexer(object):
     """Defines a lexer for the PseudoExe language.
     """
