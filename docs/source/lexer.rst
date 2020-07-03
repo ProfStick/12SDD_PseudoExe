@@ -1,7 +1,7 @@
 lexer module
 ==============
 
-.. automodule:: lexer
+.. autoclass:: lexer.Lexer
    :members:
    :undoc-members:
    :show-inheritance:
