@@ -1,4 +1,4 @@
-pse_ast module
+ast module
 ==============
 
 .. automodule:: ast
