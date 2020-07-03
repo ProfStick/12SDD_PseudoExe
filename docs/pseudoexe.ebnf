@@ -8,7 +8,7 @@ programName = <uc_letter>, {<letter>};
 
 output = 'DISPLAY', <integer>;
 
-sequence = <output> {<sequence>};
+sequence = {<sequence>} <output>;
 
 terminator = 'BEGIN'|'END', <programName>;
 

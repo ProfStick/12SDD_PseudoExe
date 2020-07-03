@@ -33,7 +33,7 @@ def main():
     parser = pg.get_parser() #TODO put this in the parser class
 
     # open the script and print its contents
-    fn = 'scripts/script001.pse'
+    fn = 'scripts/script002.pse'
     with open(fn, 'r') as file:
         script = file.read()
 

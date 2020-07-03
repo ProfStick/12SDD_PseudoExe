@@ -10,7 +10,7 @@ import sys
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from asyntree import Display, Number
+from asyntree import Display, Number, Sequence
 
 # define the tokens to be used for the lexical analysis based on the EBNF
 TOKENS = [('KW_BEGIN', 'BEGIN'),
@@ -62,9 +62,17 @@ class Parser(object):
         parses the script and passes the results to the abstract syntax tree (AST)
         '''
 
-        @self.pg.production('program : KW_BEGIN PROG_NAME output KW_END PROG_NAME')
+        @self.pg.production('program : KW_BEGIN PROG_NAME sequence KW_END PROG_NAME')
         def program(p):
             return p[2]
+
+        @self.pg.production('sequence : sequence output')
+        def sequence(p):
+            return Sequence(p)
+
+        @self.pg.production('sequence : output')
+        def sequence_output(p):
+            return p[0]
 
         @self.pg.production('output : KW_DISPLAY value')
         def output(p):
