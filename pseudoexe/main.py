@@ -33,11 +33,11 @@ def main():
     # open the script and print its contents
     fn = 'script001.pse'
     with open(fn, 'r') as file:
-        text = file.read()
+        script = file.read()
 
-    print(f'{text} \n')
+    print(f'{script} \n')
 
-    tokens = lexer.lex(text)
+    tokens = lexer.lex(script)
 
     # lexer streams seem pretty sensitive
     # if you do anything with them they break

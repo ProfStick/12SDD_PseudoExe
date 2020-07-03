@@ -1,4 +1,4 @@
-pse_ast module
+lexer module
 ==============
 
 .. automodule:: lexer
