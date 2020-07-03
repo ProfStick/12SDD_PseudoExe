@@ -36,7 +36,7 @@ for fn_src in filenames:
     
 # -- Project information -----------------------------------------------------
 
-project = 'Prof Sticks Mostly Good PseudoExe Language Project'
+project = 'Aurora 12SDD PseudoExe Language Project'
 copyright = '2020, ProfStick'
 author = 'ProfStick'
 
