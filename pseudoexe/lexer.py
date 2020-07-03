@@ -17,15 +17,6 @@ Defines a lexicon for the PseudoExe language.
     tokens = lexer.lex(script)
 """
 
-from rply import LexerGenerator
-
-TOKENS = [('KW_BEGIN', 'BEGIN'),
-    ('KW_END', 'END'),
-        ('KW_DISPLAY', 'DISPLAY'),
-        ('PROG_NAME', '[A-Z][a-zA-Z0-9]*'),
-        ('INTEGER','-?[0-9]+'),
-        ]
-
 class Lexer(object):
     """Defines a lexer for the PseudoExe language.
     """
@@ -48,17 +39,4 @@ class Lexer(object):
             NoError: but if it did you would describe it here
         """
 
-        for t in TOKENS:
-            self.lexer.add(*t)
-
-        
-        #this is just to catch all the errors so remove when not debug
-        # self.lexer.add('undef', '.')
-
-        # Ignore spaces
-        self.lexer.ignore('\s+')
-        self.lexer.ignore('\n+')
-
-    def get_lexer(self):
-        self._add_tokens()
-        return self.lexer.build()
+        pass
