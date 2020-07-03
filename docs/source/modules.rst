@@ -5,7 +5,7 @@ Modules
    :maxdepth: 4
 
    pse_ast
-   lexr_parser
+   lexer_parser
    pseudoexe
    module1
    
