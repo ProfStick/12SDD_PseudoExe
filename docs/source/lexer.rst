@@ -1,7 +1,7 @@
 lexer module
 ==============
 
-The lexer for Pseudoexe
+The lexer for Pseudoexe 001
 
 .. autoclass:: lexer.Lexer
    :members:
