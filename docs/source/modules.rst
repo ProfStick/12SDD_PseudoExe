@@ -4,7 +4,7 @@ Modules
 .. toctree::
    :maxdepth: 4
 
-   ast
+   pse_ast
    pseudoexe
    module1
    
