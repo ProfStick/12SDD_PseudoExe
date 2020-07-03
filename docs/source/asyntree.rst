@@ -1,7 +1,7 @@
-ast module
+asyntree module
 ==============
 
-.. automodule:: ast
+.. automodule:: asyntree
    :members:
    :undoc-members:
    :show-inheritance:
