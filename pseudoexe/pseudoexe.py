@@ -1,6 +1,6 @@
 """PseudoExe language project.
 
-Defines a lexicon and parser for the PseudoExe language.
+Defines a lexer and parser for the PseudoExe language.
 
 
   Typical usage example:
