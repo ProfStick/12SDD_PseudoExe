@@ -1,3 +1,5 @@
+'''PseudoExe project main script to process a *.pse script.'''
+
 import copy
 from pseudoexe import Lexer, Parser
 
@@ -6,8 +8,8 @@ def lexer_print(tokens):
     
     this needs to be done inside a function
     or some weird $eof token is generated
-    becasue iterating through a lexer stream
-    seems to destroy it
+    because iterating through lexer streams
+    seems to break them
     
     Args:
         tokens: a list of tokens (token_type, token_name)
@@ -31,19 +33,22 @@ def main():
     parser = pg.get_parser() #TODO put this in the parser class
 
     # open the script and print its contents
-    fn = 'script001.pse'
+    fn = 'scripts/script001.pse'
     with open(fn, 'r') as file:
         script = file.read()
 
     print(f'{script} \n')
 
+    # now the lexical analysis
     tokens = lexer.lex(script)
 
-    # lexer streams seem pretty sensitive
+    # It would be nice to print the result of the lexical analysis
+    # but lexer streams seem pretty sensitive :(
     # if you do anything with them they break
-    # so lets copy it and pass it to a function to protect it
+    # so lets copy it and pass the copy to a function to print it
     lexer_print(copy.copy(tokens))
     
+    # now the syntactical analysis
     output = parser.parse(tokens).eval()
 
 if __name__ == "__main__":
