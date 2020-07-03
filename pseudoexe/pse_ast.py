@@ -1,4 +1,4 @@
-"""ast - Abstract syntax tree for pseudoexe.
+"""ast - Pseudoexe abstract syntax tree.
 """        
         
 class Number():
