@@ -10,7 +10,7 @@ import sys
 
 from rply import LexerGenerator
 from rply import ParserGenerator
-from ast import Display, Number
+from asyntree import Display, Number
 
 # define the tokens to be used for the lexical analysis based on the EBNF
 TOKENS = [('KW_BEGIN', 'BEGIN'),
