@@ -1,5 +1,5 @@
 import copy
-from pseudoexe import Lexer, Parser
+from pseudoexe.pseudoexe import Lexer, Parser
 
 def lexer_print(tokens):
     '''prints a list of tokens from a lexer.
